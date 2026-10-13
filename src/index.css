@@ -1,0 +1,396 @@
+:root {
+  --brand-primary: #6f7bf7;
+  --brand-primary-dark: #5c68e8;
+  --brand-secondary: #8a63d2;
+
+  --bg-main: #f4f6fb;
+  --bg-soft: #eef1ff;
+
+  --text-main: #222;
+  --text-muted: #6c757d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+/* SAYFANIN KENDİSİ SCROLL OLMASIN */
+body {
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-main);
+}
+
+.app-wrapper {
+  height: 100vh;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  background: linear-gradient(
+    135deg,
+    #eef1ff 0%,
+    #f7f5fc 100%
+  );
+}
+
+/* ÜST BAR */
+.app-header {
+  flex-shrink: 0;
+
+  margin: 18px 22px 0;
+  padding: 18px 28px;
+
+  border-radius: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: white;
+
+  background: linear-gradient(
+    135deg,
+    var(--brand-primary),
+    var(--brand-secondary)
+  );
+
+  box-shadow: 0 8px 25px rgba(111, 123, 247, 0.2);
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 1.65rem;
+  font-weight: 700;
+}
+
+.app-header p {
+  margin: 4px 0 0;
+  opacity: 0.9;
+  font-size: 0.9rem;
+}
+
+/* ÜST SAYILAR */
+.header-stats {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-stats > div {
+  min-width: 85px;
+
+  padding: 8px 14px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(6px);
+}
+
+.header-stats strong {
+  font-size: 1.25rem;
+}
+
+.header-stats span {
+  font-size: 0.75rem;
+  opacity: 0.9;
+}
+
+/* ANA İKİ KOLON */
+.todo-layout {
+  flex: 1;
+  min-height: 0;
+
+  display: grid;
+  grid-template-columns: minmax(370px, 40%) 1fr;
+
+  gap: 18px;
+
+  padding: 18px 22px 22px;
+}
+
+/* SOL PANEL */
+.todo-left-panel {
+  min-height: 0;
+
+  background: white;
+
+  border-radius: 18px;
+
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+
+  overflow: hidden;
+}
+
+/* FORMUN ESKİ KART GÖRÜNÜMÜNÜ PANELLE BİRLEŞTİR */
+.todo-left-panel .todo-form-card {
+  height: 100%;
+  margin: 0 !important;
+
+  padding: 26px;
+
+  border-radius: 18px;
+
+  box-shadow: none;
+  overflow-y: auto;
+}
+
+/* SAĞ PANEL */
+.todo-right-panel {
+  min-width: 0;
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  background: white;
+
+  border-radius: 18px;
+
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+
+  overflow: hidden;
+}
+
+/* SAĞ PANEL BAŞLIK/FİLTRE */
+.todo-list-header {
+  flex-shrink: 0;
+
+  padding: 20px 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  border-bottom: 1px solid #eceef5;
+}
+
+.todo-list-header h4 {
+  font-weight: 700;
+}
+
+/* FİLTRELER */
+.todo-filters {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 7px;
+}
+
+/* SADECE BURASI SCROLL */
+.todo-list-scroll {
+  flex: 1;
+  min-height: 0;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  padding: 18px 20px;
+}
+
+/* SCROLLBAR'I DA BİRAZ TATLI YAP */
+.todo-list-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.todo-list-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.todo-list-scroll::-webkit-scrollbar-thumb {
+  background: #c7ccf8;
+  border-radius: 20px;
+}
+
+.todo-list-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-primary);
+}
+
+/* FORM */
+.todo-form-card {
+  background: white;
+}
+
+.form-control,
+.form-select {
+  border-radius: 10px;
+
+  padding: 0.7rem 0.9rem;
+
+  border: 1px solid #d9dded;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #9ba5ff;
+
+  box-shadow:
+    0 0 0 0.2rem rgba(111, 123, 247, 0.15);
+}
+
+textarea.form-control {
+  resize: vertical;
+}
+
+/* GÖREV KARTLARI */
+.todo-card {
+  border-radius: 14px;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.todo-card:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 22px rgba(111, 123, 247, 0.12) !important;
+}
+
+.todo-completed {
+  opacity: 0.72;
+}
+
+.todo-checkbox {
+  width: 1.2rem;
+  height: 1.2rem;
+
+  cursor: pointer;
+
+  accent-color: var(--brand-primary);
+}
+
+.todo-meta {
+  font-size: 0.82rem;
+
+  color: var(--text-muted);
+}
+
+.todo-meta i {
+  color: var(--brand-primary);
+}
+
+/* PRIMARY */
+.btn-primary {
+  border: none !important;
+
+  background: linear-gradient(
+    135deg,
+    var(--brand-primary),
+    var(--brand-secondary)
+  ) !important;
+
+  box-shadow:
+    0 4px 10px rgba(111, 123, 247, 0.18);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: linear-gradient(
+    135deg,
+    var(--brand-primary-dark),
+    #7c57cc
+  ) !important;
+}
+
+/* OUTLINE */
+.btn-outline-primary {
+  color: var(--brand-primary) !important;
+
+  border-color:
+    var(--brand-primary) !important;
+}
+
+.btn-outline-primary:hover {
+  color: white !important;
+
+  background: linear-gradient(
+    135deg,
+    var(--brand-primary),
+    var(--brand-secondary)
+  ) !important;
+}
+
+/* PRIMARY TEXT */
+.text-primary {
+  color: var(--brand-primary) !important;
+}
+
+.btn {
+  border-radius: 9px;
+}
+
+/* EMPTY */
+.empty-state {
+  height: 100%;
+
+  min-height: 250px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  color: var(--text-muted);
+}
+
+.empty-state > i {
+  font-size: 3rem;
+
+  color: var(--brand-primary);
+}
+
+.empty-state h5 {
+  margin-top: 14px;
+
+  color: var(--text-main);
+}
+
+.empty-state p {
+  margin-bottom: 0;
+}
+
+/* DAHA KÜÇÜK EKRANLAR */
+@media (max-width: 900px) {
+  .todo-layout {
+    grid-template-columns: 42% 58%;
+
+    gap: 12px;
+
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .app-header {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+
+  .header-stats span {
+    display: none;
+  }
+
+  .header-stats > div {
+    min-width: 50px;
+  }
+}
